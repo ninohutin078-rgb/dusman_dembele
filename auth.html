@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Accès Membre - Dembélé 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgba(0,0,0,0.4); /* Assombrit le fond pour faire ressortir la carte */
+        }
+        
+        .auth-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 50px 40px;
+            border-radius: 30px;
+            border: 2px solid #FFD700;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.2), inset 0 0 20px rgba(255, 215, 0, 0.1);
+            animation: cardSlideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @keyframes cardSlideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .auth-card h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 8px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .auth-btn {
+            background: linear-gradient(135deg, #FFD700, #B8860B);
+            color: #000;
+            border: none;
+            padding: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 900;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 20px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .auth-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        }
+
+        .toggle-link {
+            margin-top: 25px;
+            display: block;
+            color: #FFD700;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .toggle-link:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2 id="auth-title">👑 Connexion</h2>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Identifiant" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Mot de passe" required>
+            </div>
+            <button class="auth-btn" onclick="handleAuth()">Accéder au Salon d'Or</button>
+            <span class="toggle-link" onclick="toggleMode()" id="toggle-text">Nouveau ici ? Créer un compte</span>
+            <br>
+            <a href="index.html" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.8rem; margin-top: 20px; display: inline-block;">← Retour au site</a>
+        </div>
+    </div>
+
+    <script>
+        let isLoginMode = true;
+
+        function toggleMode() {
+            isLoginMode = !isLoginMode;
+            document.getElementById('auth-title').innerText = isLoginMode ? "👑 Connexion" : "✨ Inscription";
+            document.getElementById('toggle-text').innerText = isLoginMode ? "Nouveau ici ? Créer un compte" : "Déjà membre ? Se connecter";
+            document.querySelector('.auth-btn').innerText = isLoginMode ? "Accéder au Salon d'Or" : "Rejoindre la Légende";
+        }
+
+        function handleAuth() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            if (!user || !pass) {
+                alert("Veuillez remplir tous les champs !");
+                return;
+            }
+
+            if (isLoginMode) {
+                const storedPass = localStorage.getItem(user);
+                if (storedPass && storedPass === pass) {
+                    localStorage.setItem('currentUser', user);
+                    window.location.href = 'index.html';
+                } else {
+                    alert("Identifiants incorrects...");
+                }
+            } else {
+                localStorage.setItem(user, pass);
+                alert("Compte créé avec succès !");
+                toggleMode();
+            }
+        }
+    </script>
+</body>
+</html>

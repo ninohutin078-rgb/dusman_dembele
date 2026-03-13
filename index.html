@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ousmane Dembélé - Ballon d'Or 2025</title>
+  
+  <link rel="icon" href="PP.ico">
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="java.js" defer></script>
+</head>
+
+<body>
+
+  <div id="intro">
+    <h1>⚽ Ballon d'Or 2025 ⚽</h1>
+    <h2>Ousmane Dembélé</h2>
+    
+    <canvas id="intro-fireworks"></canvas>
+
+    <div class="sparkles">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <h2>Clubs d'Ousmane Dembélé :</h2>
+  <div class="content">
+    <div class="image-text">
+      <div class="text">
+        <p><b>De 2004 à 2010</b></p>
+        <a href="https://evreux-fc27.footeo.com/" target="_blank">
+          <img src="evreux.jpg" width="200" class="club" alt="Logo Evreux FC">
+        </a>
+      </div>
+    </div>
+
+    <div class="image-text">
+      <div class="text">
+        <p><b>De 2010 à 2016</b></p>
+        <a href="https://www.staderennais.com/" target="_blank">
+          <img src="renne.jpg" width="200" class="club" alt="Logo Stade Rennais">
+        </a>
+      </div>
+    </div>
+
+    <div class="image-text">
+      <div class="text">
+        <p><b>De 2016 à 2017</b></p>
+        <a href="https://www.bvb.de/de/en.html" target="_blank">
+          <img src="bvb.jpg" width="200" class="club" alt="Logo Borussia Dortmund">
+        </a>
+      </div>
+    </div>
+
+    <div class="image-text">
+      <div class="text">
+        <p><b>De 2017 à 2023</b></p>
+        <a href="https://www.fcbarcelona.fr/fr/" target="_blank">
+          <img src="barca.jpg" width="200" class="club" alt="Logo FC Barcelone">
+        </a>
+      </div>
+    </div>
+
+    <div class="image-text">
+      <div class="text">
+        <p><b>Depuis 2023</b></p>
+        <a href="https://www.psg.fr" target="_blank">
+          <img src="psg.jpg" width="200" class="club" alt="Logo PSG">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <h3>La vie d'Ousmane Dembélé :</h3>
+  <div class="bio">
+    <p>Ousmane Dembélé, né le 15 mai 1997 à Vernon (Eure), est un footballeur international français qui évolue au poste d'attaquant au Paris Saint-Germain.</p>
+    <p>Révélé au Stade rennais FC en 2015, il connaît une ascension fulgurante via Dortmund et Barcelone avant de rejoindre le PSG en 2023. Il y réalise une saison 2024-2025 historique avec 35 buts et un quadruplé trophées, lui offrant le Ballon d'Or 2025.</p>
+    <p>Champion du monde 2018 et finaliste en 2022, il est devenu un pilier incontournable de l'attaque tricolore.</p>
+  </div>
+
+  <div id="stats-container"></div>
+
+  <div class="salary-card" id="salary">
+    <h2>
+        <span class="title-text">Salaire actuel</span>
+    </h2>
+    
+    <p class="description">
+        Le salaire actuel d'Ousmane Dembélé est actuellement estimé à :
+    </p>
+    
+    <div class="salary-values">
+        <div class="salary-row">
+            <span class="period">Par an</span>
+            <strong class="salary-amount" data-target="18000000" data-suffix="M €">18,00M €</strong>
+        </div>
+        <div class="salary-row">
+            <span class="period">Par mois</span>
+            <strong class="salary-amount" data-target="1500000" data-suffix="M €">1,50M €</strong>
+        </div>
+        <div class="salary-row">
+            <span class="period">Par semaine</span>
+            <strong class="salary-amount" data-target="350000" data-suffix="K €">350K €</strong>
+        </div>
+        <div class="salary-row">
+            <span class="period">Par jour</span>
+            <strong class="salary-amount" data-target="50000" data-suffix="K €">50K €</strong>
+        </div>
+    </div>
+</div>
+  
+  <div style="text-align: center; margin: 40px 0;">
+  <a href="trophees.html" class="trophy-btn">
+    🏆 ACCÉDER À LA SALLE DES TROPHÉES
+  </a>
+</div>
+  
+  <div id="game-container" class="cinematic-hidden" style="display: none; text-align: center; margin: 50px auto; max-width: 1000px; padding: 0 20px;">
+    <h2 style="color: #FFD700; text-shadow: 0 0 15px gold; font-size: 2.5rem;">🥅 DÉFI TIR AU BUT</h2>
+    <p style="color: white; font-size: 1.2rem;">Marque un but face au gardien ! Score : <span id="score-val" style="color: gold; font-weight: bold;">0</span></p>
+    
+    <div id="stadium" style="width: 100%; height: 500px; background: linear-gradient(to bottom, rgba(0,40,0,0.4), rgba(0,80,0,0.6)); border: 4px solid #FFD700; border-radius: 30px; position: relative; overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.5);">
+        
+        <div id="goal" style="width: 400px; height: 180px; border: 8px solid white; border-bottom: none; position: absolute; top: 40px; left: 50%; transform: translateX(-50%); box-shadow: 0 0 20px rgba(255,255,255,0.3);"></div>
+        
+       <div id="goalkeeper" style="width: 80px; height: 110px; position: absolute; top: 100px; left: 50%; transform: translateX(-50%); transition: left 0.5s ease-in-out; z-index: 2; display: flex; flex-direction: column; align-items: center;">
+    <img src="PP.jpg" alt="Gardien" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%; border: 2px solid #FFD700; box-shadow: 0 0 15px gold;">
+    <div style="background: linear-gradient(to bottom, #FFD700, #B8860B); width: 40px; height: 40px; border-radius: 10px; margin-top: -5px;"></div>
+</div>
+
+        <div id="ball" style="width: 50px; height: 50px; background: white; border-radius: 50%; position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; font-size: 35px; display: flex; align-items: center; justify-content: center; z-index: 3; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">⚽</div>
+    </div>
+    
+    <p id="game-msg" style="color: gold; font-weight: bold; font-size: 1.5rem; margin-top: 15px; height: 30px; text-transform: uppercase;"></p>
+</div>
+
+
+  
+  <div id="member-video-section" class="cinematic-hidden" style="display: none; text-align: center; margin: 60px auto; padding: 0 20px;">
+    
+    <h2 style="color: #FFD700; text-shadow: 0 0 15px gold; margin-bottom: 30px; font-size: 2rem;">👑 LE SACRE : BALLON D'OR 2025</h2>
+    
+    <div style="max-width: 700px; margin: 0 auto; border: 4px solid #FFD700; border-radius: 25px; overflow: hidden; box-shadow: 0 0 50px rgba(255, 215, 0, 0.4); background: #000;">
+        
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+            <iframe 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 50;"
+                src="VKancdDIpOU.mp4" 
+                title="Dembélé Ballon d'Or" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+    
+	<div id="member-video-section" style="display: none;">
+    <h3>📺 Contenu Exclusif : Les coulisses du Ballon d'Or</h3>
+    </div>
+<div id="guest-message" style="text-align: center; margin: 20px;">
+    <p>Connectez-vous pour voir les vidéos exclusives !</p>
+</div>
+    <p style="color: rgba(255, 215, 0, 0.7); margin-top: 20px; font-family: sans-serif; font-weight: bold; letter-spacing: 1px;">
+        CONTENU RÉSERVÉ AUX MEMBRES OFFICIELS
+    </p>
+</div>
+
+<section class="Photos" id="Photos">
+    <h2>📸 Galerie Ousmane Dembélé</h2>
+    
+    <div class="banner-controls">
+        <button onclick="startScrolling('left')" class="dir-btn">◀ Vers la Gauche</button>
+        <button onclick="stopScrolling()" class="dir-btn">Stop</button>
+        <button onclick="startScrolling('right')" class="dir-btn">Vers la Droite ▶</button>
+    </div>
+
+    <div class="banner-container">
+        <div class="banner-scroll" id="banner">
+            <div class="photo-card"><img src="photo/1.jpg"></div>
+            <div class="photo-card"><img src="photo/2.jpg"></div>
+            <div class="photo-card"><img src="photo/4.jpg"></div>
+            <div class="photo-card"><img src="photo/6.jpg"></div>
+            <div class="photo-card"><img src="photo/3.jpg"></div>
+            <div class="photo-card"><img src="photo/5.jpg"></div>
+            
+            <div class="photo-card"><img src="photo/1.jpg"></div>
+            <div class="photo-card"><img src="photo/2.jpg"></div>
+            <div class="photo-card"><img src="photo/4.jpg"></div>
+            <div class="photo-card"><img src="photo/6.jpg"></div>
+            <div class="photo-card"><img src="photo/3.jpg"></div>
+            <div class="photo-card"><img src="photo/5.jpg"></div>
+        </div>
+    </div>
+
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-logo">DEMBÉLÉ <span>2025</span></div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/o.dembele7" target="_blank" class="social-link">Instagram</a>
+        <a href="https://twitter.com/dembouz" target="_blank" class="social-link">Twitter</a>
+        <a href="https://www.psg.fr" target="_blank" class="social-link">PSG Official</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 - Projet Hommage Ousman Dembélé Ballon d'Or 2025</p>
+        <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
